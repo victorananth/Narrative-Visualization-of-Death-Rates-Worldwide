@@ -14,7 +14,7 @@
 <body>
     <div class="alert alert-warning">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
-        The data for the country you chose doesn't exist. Please
+        The data for the country/region you chose doesn't exist. Please
       select another country/region.
     </div>
 
@@ -63,15 +63,16 @@
 	  <p>Country is defaulted to "United States". Select a period and a Country/Region
 	to view the specific data.</p>
         </div>
-        <div>
+        <div id="period">
             <!-- TODO : it's bug and onclick doens't work. Fix it! -->
             <p  style="padding:0px;margin:0px;color:Orange;">Total
-        Death Rate <input type="radio" name="type" value="0" checked/></p>
+        Death Rate  <input type="radio" id="period_0" name="type" value="0" checked/></p>
             <p  style="padding:0px;margin:0px;color:blue;">Death rate
-        before COVID<input type="radio" name="type" value="1"/> </p>
+        before COVID  <input type="radio" id="period_1" name="type" value="1"/> </p>
             <p  style="padding:0px;margin:0px;color:red;">Death rate
-        during COVID<input type="radio"name="type" value="2"/></p>
+        during COVID  <input type="radio" id="period_2" name="type" value="2"/></p>
         </div>
+        </br>
         <div style="color:red;" id="country_select_container">
 
         </div>

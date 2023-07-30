@@ -104,6 +104,7 @@ $("#to_step2").click(function() {
     //$('.close').click();
     draw("WLD", false, 2);
     d3.select("svg").append("g").attr("class", "annotation-group").call(makeAnnotations);
+    loadCountries(addCountriesList);
     //draw("USA", false, 1);
     //draw("USA", false, 2);
 })
@@ -113,13 +114,15 @@ $("#to_step3").click(function() {
     //d3.selectAll("path").remove();
     innerChart.selectAll("g").remove();
     hide('#step2');
+    hide('#step3');
     show('#step3');
     yearStart = 1960;
     //$('.close').click();
-    loadCountries(addCountriesList);
+    //loadCountries(addCountriesList);
     draw("USA", true, 0);
+    document.getElementById("period_0").checked=true;
+    document.getElementById("country").value = 'USA';
     //draw("USA", true, 0);
-
 })
 
 // -----------SCENE 3 BUTTON CLICK CODE-----------
@@ -131,7 +134,8 @@ $("#to_clear_step3").click(function() {
     hide('#step3');
     show('#step3');
     draw("USA", true, 0);
-    //draw("USA", true, 0);
+    document.getElementById("period_0").checked=true;
+    document.getElementById("country").value = 'USA';
 })
 $("#to_step1").click(function() {
      //$('.close').click();
@@ -176,7 +180,6 @@ function load(){
 // provide a callback function to execute with loaded data.
 function loadCountries(callback){
     if (typeof callback !== "function") throw new Error("Wrong callback in loadCountries");
-
     d3.json("https://api.worldbank.org/v2/country?format=json&per_page=" + totalNoOfCountriesToLoad).then(callback);
 }
 
@@ -312,7 +315,7 @@ function drawChart(countryCode, countrylabel, color){
             .attr("dy", "1em")
             .style("text-anchor", "middle")
 			.style("color", "blue")
-            .text("Percentage");
+            .text("Number of deaths per 1000 people");
 
         console.log("draw data");
 
